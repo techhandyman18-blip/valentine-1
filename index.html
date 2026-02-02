@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>muskaan will you be my Valentine? 💘</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:Arial;
+background:#fde7f1;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+position:relative;
+}
+
+img{
+width:180px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+}
+
+#yes{
+background:#16a34a;
+color:white;
+font-size:18px;
+transition:.2s;
+}
+
+#no{
+background:#ef4444;
+color:white;
+position:absolute;
+}
+
+.yay{
+font-size:48px;
+color:pink;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+
+<img id="bear" src="https://media.tenor.com/VIChDQ6ejRQAAAAj/jumping-bear-hearts-no-png.gif">
+
+<h1>Muskaan, will you be my Valentine? 💘</h1>
+<p>(You can try saying no 😏)</p>
+
+<button id="yes">Yes 💚</button>
+<button id="no">No 💔</button>
+
+</div>
+
+<script>
+let noClicks=0;
+
+const no=document.getElementById("no");
+const yes=document.getElementById("yes");
+const card=document.getElementById("card");
+const bear=document.getElementById("bear");
+
+const phrases=[
+"No 💔",
+"aye 🥺",
+"Itni nafrat 💕",
+"No must be your favorite word aye",
+"Kitna dil todengi",
+"Fark me😭"
+];
+
+no.onclick=()=>{
+noClicks++;
+
+no.innerText=phrases[Math.min(noClicks,phrases.length-1)];
+
+yes.style.fontSize=(18+noClicks*6)+"px";
+
+no.style.left=Math.random()*(300)+"px";
+no.style.top=Math.random()*(200)+"px";
+};
+
+yes.onclick=()=>{
+card.innerHTML=`
+<img src="https://media.tenor.com/f1xnRxTRxLAAAAAj/bears-with-kisses-bg.gif">
+<div class="yay">YAY!!! 💖</div>
+<p>You’re officially my Valentine 😘</p>
+`;
+};
+</script>
+
+</body>
+</html>
